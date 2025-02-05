@@ -6,40 +6,28 @@ import React, { useState } from "react";
 const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
   const router = useRouter();
 
   const handleLogin = async () => {
- 
-
-      console.log(email,password);
-      
-
-    
     try {
-      setError("")
-    const res = await axios.post("http://localhost:3000/api/auth/signin", {
-      email,
-      password
-    })
-      
+      setError("");
+      const res = await axios.post("http://localhost:3000/api/auth/signin", {
+        email,
+        password,
+      });
+
       if (res.status == 200) {
-        router.push('/')
-      }
-      else if (res.status == 404) {
-        setError("User not found or Invalid credentials")
+        router.push("/");
+      } else if (res.status == 404) {
+        setError("User not found or Invalid credentials");
       } else if (res.status == 400) {
-        setError("Please enter the correct fields")
+        setError("Please enter the correct fields");
       }
-      
-    } catch (error:any) {
-      setError(`Something went wrong ${error.message}`)
+    } catch (error: any) {
+      setError(`Something went wrong ${error.message}`);
     }
-
-   
-    
-
   };
 
   return (
@@ -55,7 +43,6 @@ const Page = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          
 
           <label className="flex font-semibold">Password</label>
           <input
@@ -65,9 +52,8 @@ const Page = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        
         </div>
-        <p className="text-red-500 text-sm">{error }</p>
+        <p className="text-red-500 text-sm">{error}</p>
         <button
           onClick={handleLogin}
           className="w-full mt-4 mb-2 bg-black p-2 text-white font-bold rounded-md"

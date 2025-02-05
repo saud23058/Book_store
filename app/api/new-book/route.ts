@@ -9,6 +9,8 @@ dbConnection();
 export async function POST(req: NextRequest) {
   try {
     const { title, description } = await req.json();
+    console.log(title,description);
+    
     if (!title || !description) {
       return NextResponse.json(
         {
