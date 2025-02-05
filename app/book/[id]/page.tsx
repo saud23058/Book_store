@@ -28,9 +28,9 @@ const Page = async ({ params }: Params) => {
             </p>
             <div className="flex justify-center">
               <Link href="/place-order">
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                Order Now
-              </button>
+                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                  Order Now
+                </button>
               </Link>
             </div>
           </div>
