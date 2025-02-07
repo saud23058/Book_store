@@ -11,7 +11,7 @@ const PlaceOrder = () => {
   const handleOrder = async () => {
     setError("");
     try {
-      const res = await axios.post(`${process.env.BASE_URL}/api/place-order`, {
+      const res = await axios.post(` http://localhost:3000/api/place-order`, {
         shippingAddress,
         quantity,
         title,

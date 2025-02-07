@@ -18,7 +18,7 @@ const Page = async ({ params }: PageProps) => {
 
   try {
     const res = await axios.get<Book>(
-      `${process.env.BASE_URL}/api/specific-book?bookId=${bookId}`
+      ` http://localhost:3000/api/specific-book?bookId=${bookId}`
     );
     const book = res.data;
 
