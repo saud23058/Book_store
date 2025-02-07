@@ -3,7 +3,7 @@ import { dbConnection } from "@/app/lib/db";
 import { bookModel } from "@/model/bookModel";
 import mongoose from "mongoose";
 
-// Connect to the database
+
 dbConnection();
 
 export async function GET(req: Request) {

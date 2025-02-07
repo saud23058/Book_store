@@ -6,8 +6,15 @@ interface Book {
   description: string;
 }
 
-const Page = async ({ params }: { params: { id: string } }) => {
-  const bookId =await params.id;
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+
+const Page = async ({ params }: PageProps) => {
+  const bookId = params.id;
 
   try {
     const res = await axios.get<Book>(

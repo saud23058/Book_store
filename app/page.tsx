@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/all-books");
+        const response = await axios.get(`http://localhost:3000/api/all-books`);
         console.log(response.data);
         
         setBooks(response.data.books);
