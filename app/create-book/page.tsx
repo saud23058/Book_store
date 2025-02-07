@@ -11,7 +11,7 @@ const CreateBook = () => {
     setError("")
     try {
   
-      const res = await axios.post("http://localhost:3000/api/new-book",{
+      const res = await axios.post(`${process.env.BASE_URL}http://localhost:3000/api/new-book`,{
         title,
         description
       })
