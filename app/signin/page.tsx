@@ -25,8 +25,12 @@ const Page = () => {
       } else if (res.status == 400) {
         setError("Please enter the correct fields");
       }
-    } catch (error: any) {
-      setError(`Something went wrong ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(`Something went wrong: ${error.message}`);
+      } else {
+        setError("Something went wrong");
+      }
     }
   };
 

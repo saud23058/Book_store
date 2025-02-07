@@ -22,8 +22,12 @@ const PlaceOrder = () => {
       } else {
         setError(res.data?.message || "Failed to place order.");
       }
-    } catch (error: any) {
-      setError(error.response?.data?.message || "Something went wrong");
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Something went wrong");
+      } else {
+        setError("Something went wrong");
+      }
       console.error("Order Error:", error);
     }
   };

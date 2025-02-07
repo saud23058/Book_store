@@ -12,7 +12,7 @@ const OrdersPage = () => {
       try {
         const res = await axios.get("http://localhost:3000/api/list-of-orders");
         setOrders(res.data);
-      } catch (error: any) {
+      } catch {
         setError("Failed to load orders");
       } finally {
         setLoading(false);
@@ -30,7 +30,7 @@ const OrdersPage = () => {
         <p className="text-red-500">{error}</p>
       ) : (
         <div className="grid gap-4 w-full max-w-3xl">
-          {orders.map((order: any) => (
+          {orders.map((order: { _id: string; bookId: { title: string; description: string }; quantity: number; userId: { username: string; email: string } }) => (
             <div
               key={order._id}
               className="bg-white shadow-md rounded-lg p-4 border border-gray-200"

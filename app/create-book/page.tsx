@@ -19,8 +19,12 @@ const CreateBook = () => {
         alert("Successfully Created book")
       }
     } 
-    catch (error: any) {
-      setError(error.response?.data?.message || "Something went wrong");
+    catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        setError(error.response?.data?.message || "Something went wrong");
+      } else {
+        setError("Something went wrong");
+      }
     }
 
   }
