@@ -22,7 +22,7 @@ const Home = () => {
         console.log(response.data);
         
         setBooks(response.data.books);
-      } catch (err: any) {
+      } catch  {
         setError("Failed to load books.");
       } finally {
         setLoading(false);

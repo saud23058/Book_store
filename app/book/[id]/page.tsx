@@ -1,17 +1,16 @@
 import axios from "axios";
 import Link from "next/link";
 
-interface Params {
-  params: {
-    id: string;
-  };
+interface Book {
+  title: string;
+  description: string;
 }
 
-const Page = async ({ params }: Params) => {
-  const bookId = params.id;
+const Page = async ({ params }: { params: { id: string } }) => {
+  const bookId =await params.id;
 
   try {
-    const res = await axios.get(
+    const res = await axios.get<Book>(
       `http://localhost:3000/api/specific-book?bookId=${bookId}`
     );
     const book = res.data;

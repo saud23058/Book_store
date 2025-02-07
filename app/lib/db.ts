@@ -7,8 +7,7 @@ export async function dbConnection() {
         console.log("DB is connected Successfully");
         
       });
-  } catch (error) {
-    console.log("Error occurred :--", error);
+  } catch {
     process.exit(1);
   }
 }
