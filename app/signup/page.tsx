@@ -13,7 +13,7 @@ const Page = () => {
   const handleLogin = async () => {
     try {
       setError("");
-      const res = await axios.post(`${process.env.BASE_URL}/api/auth/signup`, {
+      const res = await axios.post(` http://localhost:3000/api/auth/signup`, {
         email,
         password,
         username,
