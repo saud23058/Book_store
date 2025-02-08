@@ -7,6 +7,8 @@ dbConnection();
 
 export async function GET() {
   try {
+    console.log("List order api");
+    
     const orderList = await orderModel
       .find({})
       .populate({ path: "userId", model: userModel, select: "-password" }) 

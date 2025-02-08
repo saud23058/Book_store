@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server";
 import { verifyToken } from "./app/lib/token";
 
 
-const protectedRoutes = ["/book", "/create-book", "/order-list","/place-orders"]; 
+const protectedRoutes = ["/book", "/create-book", "/order-list/","/place-orders"]; 
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;

@@ -6,11 +6,13 @@ const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+   
+  console.log("Order list ");
+  
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get(` http://localhost:3000/api/list-of-orders`);
+        const res = await axios.get(`http://localhost:3000/api/list-of-orders`);
         setOrders(res.data);
       } catch {
         setError("Failed to load orders");
@@ -19,7 +21,7 @@ const OrdersPage = () => {
       }
     };
     fetchOrders();
-  }, []);
+  }, [orders]);
 
   return (
     <div className="min-h-screen flex flex-col items-center p-4">

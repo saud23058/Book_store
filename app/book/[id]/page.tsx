@@ -33,7 +33,7 @@ const Page = async ({ params }: PageProps) => {
               {book.description}
             </p>
             <div className="flex justify-center">
-              <Link href="/place-order">
+              <Link href="/place-orders">
                 <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
                   Order Now
                 </button>
